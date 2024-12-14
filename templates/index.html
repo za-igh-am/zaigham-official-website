@@ -1,0 +1,169 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head> 
+<style>
+    .moving-image {
+        position: absolute;
+        cursor: pointer;
+        transition: transform 0.5s ease;
+    }
+    .text {
+        position: relative;
+</style> 
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="about">About Me</a>
+            <a href="projects">Projects</a>
+            <a href="contact">Contact</a>
+            <a href="map">Map</a>
+        </nav>
+    </header>
+    <div class="new1">
+        <div class="text">
+            <img src="static/image (5).jpg" alt="profil image" id="profileImage" class="moving-image" onclick="moveImage(event)">    
+            <h2 id="name"onclick="changeName()">ZAIGHAM ABBAS</h2>
+        <p>Hello! I'm Zaigham, a passionate web developer with a 
+            love for creating dynamic and responsive websites. I have experience in
+             various programming languages and frameworks, and I enjoy learning new
+              technologies.</p> 
+        
+    </div>  
+        </div> 
+       
+        <div class="zaigham">
+            <img src="static/image(2).jpg" alt="image1">
+            <img src="static/image (3).jpg" alt="image1">
+            <img src="static/image (4).jpg" alt="image1">
+            <img src="static/image(6).jpg" alt="image1">
+        </div>
+         
+
+       
+       
+        <div class="programming-languages">
+            <h2>M.s programming languages<h2>
+                <ul>
+                    <li>Python</li>
+                    <li>HTML & CSS</li>
+                    <li>C++</li>
+                </ul>    
+        </div>  
+          
+
+      
+        
+    <footer>
+        <p>&copy; 2023 My Personal Website</p>
+        <p><a href="http://www.google.com" target="physzaigham@gmail.com">physzaigham@gamil.com</a></p>
+
+    </footer>
+    
+   
+</body>
+<script>
+    function changeName() {
+        var nameElement = document.getElementById("name");
+        if (nameElement.innerHTML === "ZAIGHAM ABBAS") {
+            nameElement.innerHTML = "صیغم عالم";
+        } else {
+            nameElement.innerHTML = "ZAIGHAM ABBAS"; // Optional: Toggle back
+        }
+    }
+</script>
+<script>
+    let clickCount = 0; // To track the number of clicks
+    let originalPosition = { x: 0, y: 0 }; // To store the original position of the image
+    let movingInterval; // To store the interval for moving the image
+
+    function moveImage(event) {
+        const image = event.target;
+        clickCount++;
+
+        if (clickCount === 1) {
+            // Store the original position on the first click
+            originalPosition.x = image.offsetLeft;
+            originalPosition.y = image.offsetTop;
+            image.style.pointerEvents = 'none'; // Disable clicking on the image
+            startMoving(image);
+        } else if (clickCount === 3) {
+            // Reset to original position on the third click
+            image.style.transform = `translate(${originalPosition.x}px, ${originalPosition.y}px)`;
+            clickCount = 0; // Reset click count
+            clearInterval(movingInterval); // Stop moving
+            image.style.pointerEvents = 'auto'; // Re-enable clicking on the image
+        }
+    }
+
+    function startMoving(image) {
+        const maxX = window.innerWidth - image.clientWidth;
+        const maxY = window.innerHeight - image.clientHeight;
+
+        const moveRandomly = () => {
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            image.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        };
+
+        movingInterval = setInterval(moveRandomly, 1000); // Move every second
+
+        // Stop moving after 5 seconds
+        setTimeout(() => {
+            clearInterval(movingInterval);
+            image.style.pointerEvents = 'auto'; // Re-enable clicking on the image
+        }, 5000);
+    }
+</script>
+
+
+<script>
+    nameElement.addEventListener('mouseleave', () => {
+        nameElement.textContent = originalText;
+    const images = document.querySelectorAll('.zaigham img');
+    const fullscreenOverlay = document.createElement('div');
+    fullscreenOverlay.classList.add('fullscreen-overlay');
+    document.body.appendChild(fullscreenOverlay);
+
+    const fullscreenImage = document.createElement('img');
+    fullscreenOverlay.appendChild(fullscreenImage);
+
+    const closeOverlay = document.createElement('span');
+    closeOverlay.classList.add('close');
+    closeOverlay.innerHTML = '&times;';
+    fullscreenOverlay.appendChild(closeOverlay);
+
+    const imageCaption = document.createElement('div');
+    imageCaption.classList.add('caption');
+    fullscreenOverlay.appendChild(imageCaption);
+
+    images.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            fullscreenImage.src = img.src;
+            imageCaption.innerText = img.alt || 'Image ' + (index + 1);
+            fullscreenOverlay.classList.add('show'); // Show overlay
+            fullscreenImage.style.transform = 'rotateY(0deg)'; // Reset rotation
+            setTimeout(() => {
+                fullscreenImage.style.transform = 'rotateY(360deg)'; // Rolling effect
+            }, 10);
+        });
+    });
+
+    closeOverlay.addEventListener('click', () => {
+        fullscreenOverlay.classList.remove('show'); // Hide overlay
+    });
+
+    fullscreenOverlay.addEventListener('click', (e) => {
+        if (e.target === fullscreenOverlay) {
+            fullscreenOverlay.classList.remove('show'); // Hide overlay on background click
+        }
+    });
+</script>
+
+</html>

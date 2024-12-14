@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Font for the body */
+            background-color: #f0f0f0; /* Light background color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient background for the header */
+            color: #fff; /* White text color */
+            padding: 20px; /* Padding around the header */
+            text-align: center; /* Center the text */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        .project-container {
+            max-width: 1200px; /* Max width for the project container */
+            margin: 20px auto; /* Center the container */
+            padding: 20px; /* Padding around the container */
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Space between grid items */
+        }
+
+        .project {
+            background: #fff; /* White background for each project */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            overflow: hidden; /* Hide overflow for rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .project:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+
+        .project h3 {
+            margin: 0; /* Remove default margin */
+            padding: 15px; /* Padding for the title */
+            background: #ff7e5f; /* Background color for the title */
+            color: #fff; /* White text color */
+            text-align: center; /* Center the title */
+        }
+
+        .project p {
+            padding: 15px; /* Padding for project description */
+            color: #555; /* Dark gray color for project description */
+            line-height: 1.5; /* Line height for better readability */
+        }
+
+        .project a {
+            display: block; /* Make it a block element */
+            margin: 15px; /* Margin around the link */
+            padding: 10px; /* Padding for the link */
+            background: #feb47b; /* Background color for the link */
+            color: #fff; /* White text color */
+            text-align: center; /* Center the text */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background 0.3s ease; /* Smooth transition for background */
+        }
+
+        .project a:hover {
+            background: #ff7e5f; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/" style="position: absolute; top: 10px; left: 10px; text-decoration: none; padding: 10px; background-color: #007BFF; color: white; border-radius: 5px;">Go Back</a>
+   
+    <h1>My Projects</h1>
+   
+</header>
+
+<div class="project-container">
+    <h2>Featured Projects</h2>
+
+    <div class="project">
+        <h3>Shinakobot</h3>
+        <p>Shinkobot is a chatbot focused on the Shina language, providing tailored responses and cultural insights..</p>
+        <a href="https://link-to-your-project1.com" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+        <h3>Bagrote 3D Map</h3>
+        <p>Bagrote 3D Map showcases the stunning landscapes and geographical features of Bagrot Valley, Pakistan. Bagrote 3D Map highlights the valley's lush greenery, glaciers, peaks, and interconnected villages for exploration.</p>
+        <a href="https://link-to-your-project2.com" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+        <h3>Riddem</h3>
+        <p>Riddem is an advanced AI that visualizes complex concepts in immersive 3D, enhancing understanding effortlessly. Riddem revolutionizes learning by providing detailed 3D explanations, making complex ideas accessible and engaging..</p>
+        <a href="https://link-to-your-project3.com" target="_blank">View Project</a>
+    </div>
+
+    <!-- Add more projects as needed -->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,553 @@
+                                            * {
+                                                margin: 0;
+                                                padding: 0;
+                                                box-sizing: border-box;
+                                                font-family: 'Poppins', sans-serif;
+                                            }
+                                            
+                                            body {
+                                                background: url(image\ \(1\).jpg) no-repeat;
+                                                background-size: 100%;
+                                                background-size: cover;
+                                            }
+                                            
+                                            .new1 {
+                                                position: relative;
+                                                z-index: 1;
+                                                /* Changed to a positive value */
+                                                margin-top: 6.9%;
+                                                padding: 20px;
+                                                align-items: center;
+                                                gap: 20px;
+                                                background-color: rgba(255, 255, 0, 0.8);
+                                                /* Adjusted alpha for better visibility */
+                                                border-radius: 10px;
+                                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                                /* Adjusted shadow for better effect */
+                                            }
+                                            
+                                            .text p {
+                                                margin: 0;
+                                                font-size: 16px;
+                                                color: #333;
+                                            }
+                                            
+                                            .new1 img {
+                                                width: 100px;
+                                                height: 100px;
+                                                border-radius: 50%;
+                                                object-fit: cover;
+                                                border: 2px solid #333;
+                                            }
+                                            
+                                            #name {
+                                                cursor: pointer;
+                                                /* Change cursor to pointer on hover */
+                                                transition: color 0.3s ease;
+                                                /* Smooth color transition */
+                                            }
+                                            
+                                            #name:hover {
+                                                color: #007BFF;
+                                                /* Change color on hover */
+                                            }
+                                            
+                                            @keyframes gradient {
+                                                0% {
+                                                    background-position: 0% 50%;
+                                                }
+                                                50% {
+                                                    background-position: 100% 50%;
+                                                }
+                                                100% {
+                                                    background-position: 0% 50%;
+                                                }
+                                            }
+                                            
+                                            .zaigham {
+                                                display: flex;
+                                                flex-direction: row;
+                                                align-items: center;
+                                                gap: 20px;
+                                                /* Reduced gap for better spacing */
+                                                padding: 30px;
+                                                border-radius: 10px;
+                                                box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+                                                width: 100%;
+                                                max-width: 950px;
+                                                margin: 20px auto;
+                                                position: relative;
+                                                /* Position for overlay */
+                                                background: rgba(255, 255, 255, 0.8);
+                                                /* Light background for the gallery */
+                                            }
+                                            
+                                            .zaigham img {
+                                                width: 100%;
+                                                max-width: 200px;
+                                                border-radius: 10px;
+                                                transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+                                                /* Added box-shadow and filter transition */
+                                                cursor: pointer;
+                                                /* Change cursor to pointer */
+                                                filter: grayscale(100%);
+                                                /* Grayscale filter by default */
+                                            }
+                                            
+                                            .zaigham img:hover {
+                                                transform: scale(1.05) rotate(5deg);
+                                                /* Scale and rotate on hover */
+                                                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                                                /* Glow effect on hover */
+                                                filter: grayscale(0%);
+                                                /* Remove grayscale on hover */
+                                            }
+                                            /* Fullscreen overlay styles */
+                                            
+                                            .fullscreen-overlay {
+                                                display: none;
+                                                /* Hidden by default */
+                                                position: fixed;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                background: rgba(0, 0, 0, 0.8);
+                                                /* Dark background */
+                                                justify-content: center;
+                                                align-items: center;
+                                                z-index: 1000;
+                                                /* On top of everything */
+                                                opacity: 0;
+                                                /* Start invisible */
+                                                transition: opacity 0.3s ease;
+                                                /* Smooth transition for overlay */
+                                            }
+                                            
+                                            .fullscreen-overlay.show {
+                                                display: flex;
+                                                /* Show overlay */
+                                                opacity: 1;
+                                                /* Fade in */
+                                            }
+                                            
+                                            .fullscreen-overlay img {
+                                                max-width: 90%;
+                                                max-height: 90%;
+                                                border-radius: 10px;
+                                                transition: transform 0.3s ease;
+                                                /* Smooth transition */
+                                            }
+                                            
+                                            .fullscreen-overlay .close {
+                                                position: absolute;
+                                                top: 20px;
+                                                right: 30px;
+                                                font-size: 30px;
+                                                color: white;
+                                                cursor: pointer;
+                                            }
+                                            
+                                            .fullscreen-overlay .prev,
+                                            .fullscreen-overlay .next {
+                                                position: absolute;
+                                                top: 50%;
+                                                font-size: 40px;
+                                                color: white;
+                                                cursor: pointer;
+                                                transform: translateY(-50%);
+                                            }
+                                            
+                                            .fullscreen-overlay .prev {
+                                                left: 20px;
+                                            }
+                                            
+                                            .fullscreen-overlay .next {
+                                                right: 20px;
+                                            }
+                                            
+                                            .fullscreen-overlay .caption {
+                                                position: absolute;
+                                                bottom: 20px;
+                                                left: 50%;
+                                                transform: translateX(-50%);
+                                                color: white;
+                                                font-size: 18px;
+                                                text-align: center;
+                                                max-width: 80%;
+                                            }
+                                            
+                                            .indicators {
+                                                position: absolute;
+                                                bottom: 10px;
+                                                left: 50%;
+                                                transform: translateX(-50%);
+                                                display: flex;
+                                                gap: 5px;
+                                            }
+                                            
+                                            .indicator {
+                                                width: 10px;
+                                                height: 10px;
+                                                border-radius: 50%;
+                                                background: white;
+                                                opacity: 0.5;
+                                                cursor: pointer;
+                                            }
+                                            
+                                            .indicator.active {
+                                                opacity: 1;
+                                            }
+                                            
+                                            .header {
+                                                position: fixed;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                padding: 20px 12.5%;
+                                                background: linear-gradient(135deg, #4CAF50, #8BC34A);
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                z-index: 100;
+                                                box-shadow: none;
+                                                /* No shadow initially */
+                                                transition: backgrounds 0.3s ease, box-shadow 0.3s ease;
+                                                /* Smooth transition */
+                                                animation: slideIn 0.5s ease-out;
+                                                /* Slide-in animation */
+                                            }
+                                            
+                                            .header.scrolled {
+                                                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                                                /* Shadow on scroll */
+                                            }
+                                            
+                                            .navbar a {
+                                                position: relative;
+                                                font-size: 18px;
+                                                /* Slightly larger font size */
+                                                color: #ffffff;
+                                                text-decoration: none;
+                                                font-weight: 600;
+                                                /* Bolder font weight */
+                                                margin-right: 30px;
+                                                transition: color 0.3s ease, transform 0.3s ease;
+                                                /* Smooth color and transform transition */
+                                            }
+                                            
+                                            .navbar a:hover {
+                                                color: #FFD700;
+                                                /* Change text color on hover */
+                                                transform: scale(1.1) rotate(2deg);
+                                                /* Scale and rotate on hover */
+                                                text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+                                                /* Glow effect on hover */
+                                            }
+                                            
+                                            .navbar a::after {
+                                                content: '';
+                                                position: absolute;
+                                                left: 0;
+                                                bottom: -6px;
+                                                width: 100%;
+                                                height: 2px;
+                                                background: #e4e4e4;
+                                                border-radius: 5px;
+                                                transform: translateY(10px);
+                                                opacity: 0;
+                                                transition: transform 0.5s, opacity 0.5s;
+                                                /* Smooth transition for underline */
+                                            }
+                                            
+                                            .navbar a:hover:after {
+                                                transform: translateY(0);
+                                                opacity: 1;
+                                            }
+                                            /* Keyframe animations */
+                                            
+                                            @keyframes slideIn {
+                                                from {
+                                                    transform: translateY(-100%);
+                                                }
+                                                to {
+                                                    transform: translateY(0);
+                                                }
+                                            }
+                                            /* Responsive Design */
+                                            
+                                            @media (max-width: 768px) {
+                                                .header {
+                                                    padding: 15px 5%;
+                                                    /* Adjust padding for smaller screens */
+                                                }
+                                                .navbar a {
+                                                    margin-right: 15px;
+                                                    /* Adjust margin for smaller screens */
+                                                }
+                                            }
+                                            /* Add a particle effect background (optional) */
+                                            
+                                            body {
+                                                background: url('path/to/your/particle-background.png') no-repeat center center fixed;
+                                                /* Example background */
+                                                background-size: cover;
+                                            }
+                                            
+                                            .container {
+                                                background-color: transparent;
+                                                margin-top: 5%;
+                                                padding: 10px;
+                                                padding-top: 2%;
+                                                border: #e4e4e4;
+                                                border-radius: 5px;
+                                                box-sizing: border-box;
+                                                display: flex;
+                                                flex-direction: column;
+                                            }
+                                            
+                                            .container p {
+                                                background-color: transparent;
+                                                margin-top: 1%;
+                                                padding-left: 3%;
+                                                text-decoration-line: underline;
+                                                text-decoration-color: black;
+                                                text-align: justify;
+                                                text-justify: newspaper;
+                                            }
+                                            
+                                            .programming-languages {
+                                                background: #ffffff;
+                                                /* White background for the section */
+                                                border-radius: 15px;
+                                                /* Rounded corners */
+                                                padding: 20px;
+                                                /* Padding around the content */
+                                                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                                                /* Soft shadow for depth */
+                                                max-width: 600px;
+                                                /* Max width for the section */
+                                                margin: 20px auto;
+                                                /* Center the section */
+                                                position: relative;
+                                                /* Position for gradient border */
+                                                overflow: hidden;
+                                                /* Hide overflow for border effect */
+                                                transition: transform 0.3s ease;
+                                                /* Smooth transition for scaling */
+                                            }
+                                            
+                                            .programming-languages:hover {
+                                                transform: scale(1.02);
+                                                /* Slightly scale up on hover */
+                                            }
+                                            
+                                            .programming-languages h2 {
+                                                font-size: 28px;
+                                                /* Font size for the header */
+                                                text-align: center;
+                                                /* Center the header */
+                                                color: #ff7e5f;
+                                                /* Color for the header */
+                                                margin-bottom: 20px;
+                                                /* Space below the header */
+                                                padding: 10px;
+                                                /* Padding around the header */
+                                                border-bottom: 2px solid #ff7e5f;
+                                                /* Bottom border for emphasis */
+                                            }
+                                            
+                                            .programming-languages ul {
+                                                list-style: none;
+                                                /* Remove default bullet points */
+                                                padding: 0;
+                                                /* Remove padding */
+                                            }
+                                            
+                                            .programming-languages li {
+                                                position: relative;
+                                                /* Position for custom bullet */
+                                                padding: 15px 20px;
+                                                /* Padding for list items */
+                                                font-size: 18px;
+                                                /* Font size for list items */
+                                                color: #333;
+                                                /* Dark color for list items */
+                                                background: #f9f9f9;
+                                                /* Light background for list items */
+                                                border-radius: 10px;
+                                                /* Rounded corners for list items */
+                                                margin: 10px 0;
+                                                /* Margin between list items */
+                                                transition: background 0.3s ease, transform 0.3s ease;
+                                                /* Smooth transitions */
+                                            }
+                                            
+                                            .programming-languages li:hover {
+                                                background: #ff7e5f;
+                                                /* Change background on hover */
+                                                color: white;
+                                                /* Change text color on hover */
+                                                transform: translateY(-2px);
+                                                /* Lift effect on hover */
+                                            }
+                                            
+                                            .programming-languages li::before {
+                                                content: '';
+                                                /* Custom bullet character */
+                                                position: absolute;
+                                                /* Position the bullet */
+                                                left: 10px;
+                                                /* Position to the left */
+                                                top: 50%;
+                                                /* Center vertically */
+                                                transform: translateY(-50%);
+                                                /* Center the bullet */
+                                                width: 10px;
+                                                /* Width of the bullet */
+                                                height: 10px;
+                                                /* Height of the bullet */
+                                                border-radius: 50%;
+                                                /* Make it circular */
+                                                background: #ff7e5f;
+                                                /* Color for the bullet */
+                                            }
+                                            
+                                            .programming-languages li.python::before {
+                                                background: #306998;
+                                                /* Python color */
+                                            }
+                                            
+                                            .programming-languages li.html::before {
+                                                background: #e34c26;
+                                                /* HTML color */
+                                            }
+                                            
+                                            .programming-languages li.css::before {
+                                                background: #1572B6;
+                                                /* CSS color */
+                                            }
+                                            
+                                            .programming-languages li.cpp::before {
+                                                background: #f34b7d;
+                                                /* C++ color */
+                                            }
+                                            
+                                            footer {
+                                                background: #333;
+                                                /* Dark background for the footer */
+                                                color: #fff;
+                                                /* White text color */
+                                                padding: 20px;
+                                                /* Padding around the footer */
+                                                text-align: center;
+                                                /* Center the text */
+                                                position: relative;
+                                                /* Position for any additional effects */
+                                                overflow: hidden;
+                                                /* Hide overflow for any effects */
+                                            }
+                                            
+                                            footer p {
+                                                margin: 10px 0;
+                                                /* Margin for paragraphs */
+                                                font-size: 16px;
+                                                /* Font size for text */
+                                                line-height: 1.5;
+                                                /* Line height for better readability */
+                                            }
+                                            
+                                            footer a {
+                                                color: #ff7e5f;
+                                                /* Link color */
+                                                text-decoration: none;
+                                                /* Remove underline */
+                                                transition: color 0.3s ease;
+                                                /* Smooth transition for color */
+                                            }
+                                            
+                                            footer a:hover {
+                                                color: #feb47b;
+                                                /* Change link color on hover */
+                                                text-decoration: underline;
+                                                /* Underline on hover */
+                                            }
+                                            /* Neon button styling */
+                                            
+                                            .email-button {
+                                                display: inline-block;
+                                                /* Make it a block element */
+                                                padding: 10px 20px;
+                                                /* Padding for the button */
+                                                font-size: 18px;
+                                                /* Font size for the button text */
+                                                color: #ff7e5f;
+                                                /* Text color */
+                                                background: transparent;
+                                                /* Transparent background */
+                                                border: 2px solid #ff7e5f;
+                                                /* Border color */
+                                                border-radius: 5px;
+                                                /* Rounded corners */
+                                                position: relative;
+                                                /* Position for the glow effect */
+                                                overflow: hidden;
+                                                /* Hide overflow for the glow effect */
+                                                transition: all 0.3s ease;
+                                                /* Smooth transition for hover effects */
+                                            }
+                                            
+                                            .email-button::before {
+                                                content: '';
+                                                /* Create a pseudo-element for the glow */
+                                                position: absolute;
+                                                /* Position it absolutely */
+                                                top: 0;
+                                                /* Align to the top */
+                                                left: 0;
+                                                /* Align to the left */
+                                                right: 0;
+                                                /* Align to the right */
+                                                bottom: 0;
+                                                /* Align to the bottom */
+                                                background: rgba(255, 126, 95, 0.5);
+                                                /* Semi-transparent background */
+                                                border-radius: 5px;
+                                                /* Match border radius */
+                                                transform: scale(0);
+                                                /* Start scaled down */
+                                                transition: transform 0.3s ease;
+                                                /* Smooth transition for scaling */
+                                                z-index: -1;
+                                                /* Place behind the button */
+                                            }
+                                            
+                                            .email-button:hover {
+                                                color: #fff;
+                                                /* Change text color on hover */
+                                                background: #ff7e5f;
+                                                /* Change background color on hover */
+                                            }
+                                            
+                                            .email-button:hover::before {
+                                                transform: scale(1);
+                                                /* Scale up the glow effect on hover */
+                                            }
+                                            /* Optional: Add a decorative wave effect at the top of the footer */
+                                            
+                                            footer::before {
+                                                content: '';
+                                                position: absolute;
+                                                top: -50px;
+                                                /* Position above the footer */
+                                                left: 0;
+                                                right: 0;
+                                                height: 100px;
+                                                /* Height of the wave */
+                                                background: #333;
+                                                /* Same as footer background */
+                                                border-radius: 50% 50% 0 0;
+                                                /* Rounded top corners */
+                                                z-index: -1;
+                                                /* Place behind the footer */
+                                            }

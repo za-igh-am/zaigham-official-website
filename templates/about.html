@@ -1,0 +1,323 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - My Personal Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-color: hsl(178, 40%, 64%);
+    }
+    @keyframes backgroundAnimation {
+        0% {
+            background-color: #ff3f00; /* Neon Orange */
+        }
+        50% {
+            background-color: #00ff99; /* Neon Green */
+        }
+        100% {
+            background-color: #ff3f00; /* Neon Orange */
+        }
+    }
+    
+    @keyframes titleAnimation {
+        0% {
+            transform: translateY(-50px);
+            opacity: 0;
+            text-shadow: 0 0 20px rgba(255, 63, 0, 0.8), 0 0 30px rgba(255, 63, 0, 0.6);
+        }
+        50% {
+            transform: translateY(10px);
+            opacity: 0.5;
+            text-shadow: 0 0 20px rgba(0, 255, 153, 0.8), 0 0 30px rgba(0, 255, 153, 0.6);
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+            text-shadow: 0 0 20px rgba(0, 255, 153, 1), 0 0 30px rgba(0, 255, 153, 0.8);
+        }
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-color: hsl(178, 40%, 64%);
+    }
+    
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 12.5%;
+        display: flex;
+        justify-content: center; /* Center the title */
+        align-items: center;
+        z-index: 100;
+        animation: backgroundAnimation 5s ease-in-out infinite; /* Background animation */
+    }
+    
+    .about-title {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+        font-size: 3rem; /* Increase font size for emphasis */
+        animation: titleAnimation 1s ease forwards; /* Title entrance animation */
+        transition: color 0.3s; /* Smooth color transition */
+    }
+    
+    .about-title:hover {
+        color: #ff00ff; /* Neon Pink on hover */
+        text-shadow: 0 0 20px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 0.8); /* Neon effect on hover */
+    }
+   
+  
+    
+    section#about {
+        margin-top: 100px; /* Space below the fixed header */
+        .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 12.5%;
+        background-color: yellowgreen;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+    
+    .header h1 {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: center; /* Center the title */
+        flex-grow: 1; /* Allow the title to take up space */
+    }
+    
+    nav.new1 {
+        display: flex; /* Flexbox for navigation */
+    }
+    
+    nav.new1 a {
+        color: #fff; /* Link color */
+        text-decoration: none; /* Remove underline */
+        margin-right: 20px; /* Space between links */
+        padding: 10px 15px; /* Padding for buttons */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Smooth transition */
+    }
+    
+    nav.new1 a:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    } padding: 20px 12.5%; /* Padding for the section */
+        background-color: #fff; /* White background for the section */
+        border-radius: 5px; /* Optional: Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    }
+    /* Styles for h2 elements */
+#about h2 {
+    font-size: 2.5em; /* Larger font size */
+    color: #333; /* Dark text color */
+    margin-bottom: 10px; /* Space below the heading */
+    position: relative; /* Position for pseudo-element */
+    padding: 10px; /* Padding for better spacing */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions */
+    background: linear-gradient(90deg, #007BFF, #00CFFF); /* Gradient background */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+    letter-spacing: 1px; /* Increase letter spacing */
+    font-weight: bold; /* Bold font weight */
+}
+
+/* Background effect for h2 */
+#about h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Position below the text */
+    height: 5px; /* Height of the background effect */
+    background-color: #007BFF; /* Blue background */
+    transform: scaleX(0); /* Start with no width */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Change color and animate background on hover */
+#about h2:hover {
+    color: #007BFF; /* Change text color on hover */
+    transform: translateY(-5px); /* Slight upward movement */
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Glow effect on hover */
+}
+
+#about h2:hover::after {
+    transform: scaleX(1); /* Expand background on hover */
+}
+
+/* Styles for p elements */
+#about p {
+    font-size: 1.1em; /* Slightly larger font size */
+    color: #555; /* Medium text color */
+    line-height: 1.6; /* Better line spacing */
+    margin-bottom: 20px; /* Space below paragraphs */
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    padding: 10px; /* Padding for better spacing */
+    border-left: 5px solid #007BFF; /* Left border for emphasis */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background */
+    position: relative; /* Position for pseudo-element */
+}
+
+/* Animate paragraph on hover */
+#about p:hover {
+    transform: translateY(-2px); /* Slight upward movement */
+    color: #333; /* Darker color on hover */
+    background-color: rgba(0, 123, 255, 0.3); /* Darker background on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Optional: Add a subtle animation to the h2 and p elements when they appear */
+#about h2, #about p {
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start slightly below */
+    animation: fadeInUp 0.5s forwards; /* Animation */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+/* Additional hover effect for paragraphs */
+#about p:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 123, 255, 0.2); /* Light blue overlay */
+    z-index:
+} 
+/* Styles for unordered list */
+ul {
+    margin: 10px 0; /* Margin for the list */
+    padding-left: 20px; /* Indent the list */
+    list-style-type: none; /* Remove default bullet points */
+}
+
+/* Custom bullet points */
+ul li::before {
+    content: '•'; /* Custom bullet character */
+    color: #007BFF; /* Color for the bullet */
+    font-size: 1.5em; /* Size of the bullet */
+    margin-right: 10px; /* Space between bullet and text */
+}
+
+/* Styles for list items */
+ul li {
+    transition: color 0.3s, transform 0.3s, background-color 0.3s; /* Smooth transition for color, transform, and background */
+    padding: 5px; /* Padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    position: relative; /* Position for pseudo-element */
+}
+
+/* Hover effects for list items */
+ul li:hover {
+    color: yellowgreen; /* Change color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Optional: Add a subtle animation to the list items when they appear */
+ul li {
+    opacity: 0; /* Start invisible */
+    transform: translateY(10px); /* Start slightly below */
+    animation: fadeInUp 0.5s forwards; /* Animation */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+    
+   
+    footer {
+        text-align: center; /* Center the footer text */
+        padding: 20px 0; /* Padding for the footer */
+        background-color: yellowgreen; /* Footer background color */
+        color: #fff; /* Footer text color */
+        position: relative; /* Positioning for footer */
+        bottom: 0; /* Align to bottom */
+        width: 100%; /* Full width */
+    }
+
+</style>
+<body>
+    <header class="header"> 
+        <a href="/" style="position: absolute; top: 10px; left: 10px; text-decoration: none; padding: 10px; background-color: #007BFF; color: white; border-radius: 5px;">Go Back</a> 
+          
+        <h1 class="about-title">About Me</h1>
+       
+    </header>
+    <section id="about">
+        <h2>About Me:</h2>
+        <p>Hello! My name is Zaigham Abbas, and I am a passionate programmer with a deep love for technology and problem-solving. From a young age, I was fascinated by computers and how they work. This curiosity led me to explore the world of programming, where I discovered my true calling. Over the years, I have honed my skills in various programming languages and technologies, allowing me to create innovative solutions and contribute to exciting projects.
+
+            I hold a degree in Computer Science, which provided me with a solid foundation in programming principles, algorithms, and software development methodologies. During my academic journey, I was exposed to a variety of programming languages, including Python, Java, and JavaScript. Each language has its unique strengths, and I enjoy leveraging them to build efficient and scalable applications.
+            
+            One of my primary interests lies in web development. I love the idea of creating interactive and user-friendly websites that provide value to users. I have experience with both front-end and back-end development, which allows me to understand the complete web development process. On the front end, I enjoy working with HTML, CSS, and JavaScript to create visually appealing interfaces. On the back end, I have worked with frameworks like Flask and Django, which enable me to build robust server-side applications.
+            
+            In addition to web development, I am also interested in data science and machine learning. The ability to analyze data and extract meaningful insights is a powerful skill in today’s data-driven world. I have taken several online courses to deepen my understanding of these fields, and I have worked on projects that involve data analysis and predictive modeling. I find it incredibly rewarding to use programming to solve real-world problems and make data-driven decisions.
+            
+            Collaboration is another aspect of programming that I truly enjoy. I believe that great ideas often come from teamwork and diverse perspectives. I have participated in various hackathons and coding competitions, where I had the opportunity to work with talented individuals from different backgrounds. These experiences have not only improved my technical skills but have also taught me the importance of communication and collaboration in achieving common goals.
+            
+            In my free time, I love to stay updated with the latest trends in technology. I regularly read blogs, watch tutorials, and participate in online forums to learn about new programming languages, frameworks, and tools. I also enjoy contributing to open-source projects, as it allows me to give back to the community and learn from other developers.
+            
+            Outside of programming, I have a variety of interests. I enjoy playing video games, which often inspire my programming projects. I also love reading, particularly science fiction and technology-related books, as they fuel my imagination and creativity. Additionally, I enjoy outdoor activities like hiking and cycling, which help me maintain a healthy work-life balance.
+            
+            In conclusion, I am Zaigham Abbas, a dedicated programmer with a passion for technology and a commitment to continuous learning. I am excited about the future and the endless possibilities that programming offers. I look forward to contributing to innovative projects, collaborating with like-minded individuals, and making a positive impact through technology.</p>
+        
+        <h2>My Background</h2>
+        <p>I am a skilled programmer with a strong foundation in computer science and a passion for technology. I specialize in web development, utilizing languages such as Python, Java, and JavaScript to create dynamic applications. With experience in both front-end and back-end development, I enjoy building user-friendly websites and robust server-side applications. I hold a degree in Computer Science and have participated in various hackathons, enhancing my collaboration and problem-solving skills. In addition to web development, I am interested in data science and machine learning, continuously seeking to expand my knowledge through online courses and projects. Outside of programming, I enjoy reading, gaming, and outdoor activities, maintaining a well-rounded lifestyle that fuels my creativity and passion for technology. </p>
+        
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python, Flask, Django</li>
+            <li>React, Node.js</li>
+            <li>Responsive Design</li>
+            <li>Version Control (Git)</li>
+        </ul>
+        
+        <h2>Interests</h2>
+        <p>In my free time, I enjoy to study about computer and programming languages. I also love contributing to open-source projects and staying updated with the latest trends in web development.</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Personal Website</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - My Personal Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-color: hsl(178, 40%, 64%);
+    }
+    
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 12.5%;
+        background-color: yellowgreen;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
+    
+    .header h1 {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
+    .text {
+        background-color: yellow; /* Sets the background color to yellow */
+        text-align: center; /* Centers the text horizontally */
+        padding: 20px; /* Adds some padding for better spacing */
+        margin: 100px 12.5%; /* Adds margin to position it below the header */
+        border-radius: 5px; /* Optional: Adds rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    }
+    
+    .socialmedia {
+        position: relative;
+        background: #fff;
+        margin-top: 40px; /* Adjusted to fit below the .text div */
+        margin-right: 200px; /* Adjust as needed */
+        display: flex;
+        justify-content: center; /* Centers the social media icons */
+    }
+    
+    .sci {
+        list-style: none; /* Removes default list styling */
+        padding: 0; /* Removes default padding */
+        display: flex; /* Ensures the list items are in a row */
+    }
+    
+    .sci li {
+        margin: 0; /* Resets margin for list items */
+    }
+    
+    .sci li a {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 20px; /* Space between icons */
+        font-size: 2em; /* Adjusted font size for better fit */
+        transform-style: preserve-3d;
+        perspective: 500px;
+        box-shadow: 0 24px 35px rgba(0, 0, 0, 1);
+        transition: background 0.25s;
+    }
+    
+    .sci li a:hover.facebook {
+        background: #1877f2; /* Facebook hover color */
+    }
+    
+    .sci li a:hover.instagram {
+        background: #e4405f; /* Instagram hover color */
+    }
+    
+    .sci li a:hover.twitter {
+        background: #0099ff; /* Twitter hover color */
+    }
+   
+  
+</style>
+  
+<body>
+    <header class="header">
+        <nav class="new1">
+            <a href="/" style="position: absolute; top: 10px; left: 10px; text-decoration: none; padding: 10px; background-color: #007BFF; color: white; border-radius: 5px;">Go Back</a>
+            
+           
+           
+            
+       
+    </nav>
+    <h1>Contact Me</h1>
+        
+    </header>
+    <div class="text">
+        <h2>Get in Touch</h2>
+        <p>If you would like to reach out to me, feel free to connect with me on social media:</p>
+    </div>
+    <section class="socialmeadia">
+        <ul class="sci">
+            <li data-text="instagram" data-color="#e4405f">
+                <a href="https://www.instagram.com/za_igh_am" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            </li>
+            <li data-text="facebook" data-color="#1877f2"> 
+                <a href="https://www.facebook.com/iam.zagham005" class="facebook">  <i class="fab fa-facebook" aria-hidden="true" ></i></a>                       
+            </li>
+            <li  data-text="Twitter" data-color="#0099ff">
+                <a href="https://x.com/your_x_id" class="Twitter"> <i class="fab fa-x" aria-hidden="true"></i></a>   
+            </li>
+        </ul>
+        <p>You can also email me at: <a href="mailto:physzaigham@gmial.com">physzaigham@gmial.com</a></p>
+    </section>
+   
+            
+    <footer>
+        <p>&copy; 2023 My Personal Website</p>
+    </footer>
+</body>
+</html>
